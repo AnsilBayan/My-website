@@ -1,0 +1,731 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+</style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+html{
+    scroll-behavior: smooth;
+}
+
+.maxwidth{
+    max-width:1300px;
+    padding: 0 40px;
+    margin: auto;
+}
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 998;
+    font-family: 'Ubuntu',sans-serif;
+    padding:8px 0px 8px 0px ;
+    transition: all 0.3s ease;
+}
+
+.sticky{
+    background-color:rgba(18, 1, 1, 0.658);
+}
+
+.navbar .maxwidth{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo a{
+    color: rgb(197, 217, 234);
+    font-size: 35px;
+    font-weight: 600;
+    
+}
+
+.logo span{
+    color: aqua;
+}
+
+.menu li{
+    display: inline-block;
+    
+}
+
+.menu li a {
+    display: block;
+    color: rgb(197, 217, 234);
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    position: relative;
+
+}
+.menu li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: azure;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+.menu li a:hover::after{
+    width: 100%;
+}
+
+.menu li a:hover{
+    color: rgb(255, 255, 255);
+}
+
+.menubar{
+    color: rgb(226, 233, 239);
+    font-size: 23;
+    cursor: pointer;
+    display: none
+    
+}
+.scrollup{
+    position: fixed;
+    height: 45px;
+    width: 42px;
+    background: rgb(14, 43, 94);
+    right: 30px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 45px;
+    color: white;
+    z-index: 9999;
+    font-size: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.scrollup.show{
+    bottom: 30px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.home{
+    background:linear-gradient(to bottom,rgb(61, 89, 103),rgb(4, 6, 31));
+    display: flex;
+    height: 100vh;
+    background-repeat: no-repeat;
+    color: rgb(197, 217, 234);
+    font-family: 'Ubuntu',sans-serif;
+    
+}
+
+.home .maxwidth{
+    margin: auto 0 auto 180px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.homecontent .text1{
+    font-size: 37px;
+}
+
+.homecontent .text2{
+    font-size: 65px;
+    font-weight: 600;
+    margin-left: -3px;
+}
+
+.homecontent .text3{
+    font-size: 48px;
+    margin: 5px 0;
+}
+
+.home .homecontent .text3 span{
+    color: rgb(195, 77, 35);
+    font-weight: 500;
+}
+
+.sizedbox{
+    width: 120px;
+    height:10px;
+}
+#myphoto{
+    position: absolute;
+    left: 900px;
+    
+}
+
+section{
+    padding: 100px 0;
+}
+.about{
+    background:linear-gradient(to bottom,rgb(255, 255, 255),rgb(75, 102, 123));
+    height: 100vh;
+    background-repeat: no-repeat;
+    font-family:'Ubuntu',sans-serif;
+    
+}
+section .tittle{
+    font-family: 'Ubuntu',sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 20px;
+    position: relative;
+    
+}
+section .tittle::before{
+    content:'';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 180px;
+    height: 3px;
+    background: rgb(0, 0, 0);
+    transform: translateX(-50%);
+}
+section .tittle::after{
+    position: absolute;
+    left: 50%;
+    font-size: 20px;
+    color: rgb(7, 54, 136);
+    padding: 5px;
+    background-color: rgb(218, 222, 226);
+    transform: translateX(-50%);
+}
+.about .tittle::after{
+    bottom: -15px;
+    z-index: 950;
+    content: 'Who I am';
+}
+.aboutcontent,
+.acheivecontent,
+.skillcontent,
+.contactcontent{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.aboutcontent .left{
+    width: 45%;
+}
+
+.aboutcontent .left img{
+    height: 400px;
+    width:500px;
+    object-fit: cover;
+}
+.aboutcontent .right {
+    flex: 0 0 55%;
+    width: 50%;
+}
+
+.aboutcontent .right .text {
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.aboutcontent .right p {
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.aboutcontent .right a {
+    display: inline-block;
+    background: rgb(24, 58, 96);
+    color: white;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: 2px solid rgb(15, 1, 53);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.aboutcontent .right a:hover{
+    color: rgb(8, 27, 49);
+    background: none;
+    font-weight: 600;
+}
+.acheive,.project{
+    background: black;
+    color: rgb(189, 193, 225);
+    font-family:'Poppins',sans-serif;
+}
+.acheivecontent{
+    display: flex
+    flex:list-item;
+    
+}
+
+.acheive .tittle::before,
+.project .tittle::before{
+    z-index: 900;
+    background: white;
+    width: 300px;
+}
+
+.acheive .tittle::after,
+.project .tittle::after{
+    bottom: -15px;
+    z-index: 950;
+    content: 'What I Acheived';
+    color: aquamarine;
+    background-color: rgb(0, 0, 0);
+}
+
+.acheivecontent .card{
+    width: calc(33% - 20px);
+    background: rgb(31, 39, 62);
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 20px;
+    
+}
+
+.acheivecontent .card .box{
+    transition: all 0.3s ease;
+    padding-top: 5px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.acheivecontent .card:hover .box{
+    transform: scale(1.05);
+}
+
+.acheivecontent .card i{
+    font-size: 40px;
+    color: aquamarine;
+}
+
+.acheivecontent .card .text{
+    font-size: 28px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+
+.acheivecontent .card p{
+    font-size: 18px;
+    text-align: center;
+}
+.acheivecontent .box a {
+    display: block;
+    unicode-bidi: isolate;
+    background: rgb(4, 21, 41);
+    color: white;
+    font-weight: 500;
+    padding: 10px 20px;
+    margin: 10px 0 7px 0;
+    border-radius: 6px;
+    border: 2px solid rgb(130, 69, 192);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.acheivecontent .box a:hover{
+    color: rgb(81, 81, 244);
+    background: none;
+    font-weight: 600;
+    border-color: rgb(81, 81, 244);
+}
+
+.skills{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(to bottom,rgb(255, 255, 255),rgb(179, 169, 209));
+}
+.skills .tittle::after{
+    bottom: -15px;
+    z-index: 950;
+    content: 'What I Know';
+    color: rgb(42, 91, 165);
+    font-weight: 500;
+    background: rgb(230, 229, 235);
+}
+.skillcontent .column{
+    width: calc(50% - 30px);
+}
+.skillcontent .left .text{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.skillcontent .left p{
+    text-align: justify;
+}
+.skillcontent .left a{
+    display: inline-block;
+    background: rgb(24, 58, 96);
+    color: rgb(213, 212, 230);
+    font-weight: 500;
+    font-size: 18px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    margin-top: 20px;
+    border: 2px solid rgb(15, 1, 53);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.skillcontent .left a:hover{
+    color: brown;
+    background: none;
+}
+.skillcontent .right .bars{
+    margin-bottom: 15px;
+}
+.skillcontent .right .info{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    justify-content: space-between;
+}
+.skillcontent .right span{
+    font-weight: 600;
+    font-size: 18px;
+}
+.skillcontent .right .line{
+    height: 5px;
+    width: 100%;
+    background: rgb(105, 102, 102);
+    position: relative;
+}
+.skillcontent .right .line::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: brown
+}
+.skillcontent .right .python::before{
+    width: 90%;
+}
+.skillcontent .right .javascript::before{
+    width: 80%;
+}
+.skillcontent .right .Clang::before{
+    width: 80%;
+}
+.skillcontent .right .html::before{
+    width: 75%;
+}
+.skillcontent .right .dart::before{
+    width: 70%;
+}
+.skillcontent .right .mysql::before{
+    width: 65%;
+}
+.more{
+    display: none;
+}
+
+.project .tittle::before{
+    width: 200px;
+    bottom: 0px;
+}
+.project .tittle::after{
+    content: "What I Did";
+    bottom: -13px;
+}
+.projects .card{
+    background: rgb(37, 37, 37);
+    border-radius: 6px;
+    padding: 25px 35px;
+    text-align: center;
+    height: 400px;
+    transition: all 0.3s ease;
+}
+.projects .card:hover{
+    background: rgb(2, 9, 32);
+}
+.projects .card .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.projects .card:hover .box{
+    transform: scale(1.05);
+}
+.projects .card .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+.projects .card img{
+    height: 150px;
+    width: 150px !important;
+    border-radius: 30%;
+    border: 5px solid aquamarine;
+    transition: all 0.3s ease;
+}
+.projects .card:hover img{
+    border-color: black;
+}
+.links{
+    padding-top: 10px;
+    font-size: 20px;
+    color: rgb(101, 172, 219);
+}
+.links:hover{
+    color: brown;
+}
+.owl-dots{
+    text-align: center;
+    margin-top: 20px;
+}
+.owl-dot{
+    height: 13px;
+    width: 13px;
+    margin: 0 5px;
+    outline: none !important;
+    border-radius: 50%;
+    border: 2px solid aquamarine !important;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.owl-dot.active{
+    width: 35px;
+    border-radius: 14px;
+    background-color: aquamarine !important;
+}
+
+.contact,
+footer{
+    font-family:'Poppins',sans-serif;
+}
+.contact .tittle::before{
+    width: 190px;
+}
+.contact .tittle::after{
+    content: 'Get in Touch';
+    bottom: -13px;
+    background-color: white;
+}
+.contactcontent .column{
+    width: calc(50% - 30px);
+}
+.contactcontent .text{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.contactcontent .left p{
+    text-align: justify;
+}
+.contactcontent .left .icons{
+    margin: 10px 0;
+}
+.contactcontent .row{
+    display: flex;
+    height: 65px;
+    align-items: center;
+}
+.contactcontent .info{
+    margin-left: 30px;
+}
+.contactcontent .row i{
+    font-size: 25px;
+    color: rgb(30, 9, 88);
+}
+.contactcontent .info .head{
+    font-weight: 500;
+}
+.contactcontent .info .subtittle{
+    color: rgb(63, 62, 62);
+}
+.contactcontent .right form .fields{
+    display: flex;
+}
+.contactcontent .right form .field{
+    height: 45px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.contactcontent .right form .name{
+    margin-right: 10px;
+}
+.contactcontent .right form .email{
+    margin-right: 10px;
+}
+.contactcontent .right form .textarea{
+    height: 80px;
+    width: 100%;
+}
+.contactcontent .right form .field input,
+.contactcontent .right form textarea{
+    height: 100%;
+    width: 100%;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 6px;
+    outline: none;
+    padding: 0 15px;
+    font-size: 17px;
+}
+.contactcontent .right form textarea{
+    padding-top: 10px;
+    resize: none;
+}
+.contactcontent .right form .button{
+    height: 47px;
+    width: 160px
+}
+.contactcontent .right form .button button{
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(10, 3, 39);
+    background: rgb(30, 9, 88);
+    color: rgb(213, 212, 230);
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.contactcontent .right form .button button:hover{
+    color: rgb(30, 9, 88);
+    background: none;
+}
+#linkbutton:hover{
+    color: brown;
+}
+footer{
+    background: rgb(0, 0, 0);
+    padding: 15px;
+    text-align: center;
+}
+footer span{
+    color: rgb(255, 255, 255);
+}
+footer .name{
+    color: aqua;
+}
+
+@media (max-width:1110px){
+    .home .maxwidth{
+        margin-left: 50px;
+    }
+    .homecontent .text1{
+    font-size: 32px;
+    }
+    .homecontent .text2{
+    font-size: 55px;
+    }
+    .homecontent .text3{
+    font-size: 35px;
+    }
+    
+}
+
+@media (max-width:1010px){
+    .maxwidth{
+        padding: 0 30px;
+    }
+    .homecontent .text1{
+    font-size: 30px;
+    }
+    .aboutcontent .left img{
+    height: 300px;
+    width:400px;
+}
+}
+
+@media (max-width:970px){
+    .maxwidth{
+        padding: 0 20px;
+    }
+
+    .menubar{
+        display: block;
+        z-index: 999;
+        
+    }
+
+    .menubar i.active:before{
+        content:'\f00d'
+    }
+
+    .menu{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%;
+        top:0;
+        background: rgb(3, 20, 40);
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.3s ease;
+        
+    }
+
+    .menu.active{
+        left:0;
+    }
+    .menu li{
+        display:block;
+    }
+    .menu li a{
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 25px;
+    }
+    .homecontent .text1{
+    font-size: 28px;
+    }
+    .homecontent .text2{
+    font-size: 50px;
+    }
+    .homecontent .text3{
+    font-size: 30px;
+    }
+    .aboutcontent .column{
+        width: 50%;
+    }
+    .maxwidth{
+        max-width: 800px;
+    }
+    .aboutcontent .left{
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 60px;
+    }
+    .aboutcontent .right{
+        text-align: center;
+        justify-content: center;
+        width: 80%;
+        margin-left:50px;
+        margin-right: 50px;
+    }
+    .aboutcontent{
+        display: inline-block; 
+    }
+    .about{
+        height: fit-content;
+    }
+    .acheivecontent .card{
+        width: calc(50% - 10px);
+        margin-bottom: 20px;
+    }
+    .skillcontent .column,
+    .contactcontent .column{
+        width: 100%;
+        margin-bottom: 35px;
+    }
+    .skillcontent,
+    .contactcontent{
+        display: inline-block;
+    }
+}
+
+@media (max-width:700px){
+    .acheivecontent .card{
+        width: 100%;
+    }
+}
